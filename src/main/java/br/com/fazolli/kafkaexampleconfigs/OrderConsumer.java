@@ -15,7 +15,7 @@ public class OrderConsumer {
 //        System.out.println("Order: " + order);
 //    }
 
-    @KafkaListener(topics = "${order.topic}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "example-topic", groupId = "${spring.kafka.consumer.group-id}")
     public void consumer(final ConsumerRecord consumerRecord, Acknowledgment ack) throws InterruptedException {
         System.out.println("key: " + consumerRecord.key());
         System.out.println("Headers: " + consumerRecord.headers());

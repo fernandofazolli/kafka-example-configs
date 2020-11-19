@@ -20,8 +20,9 @@ public class OrderProducer {
     }
 
     public void send(final @RequestBody String order) {
-        final String mensageKey = UUID.randomUUID().toString();
-        kafkaTemplate.send(orderTopic, mensageKey, order);
+        //final String mensageKey = UUID.randomUUID().toString();
+        final String mensageKey = order;
+        kafkaTemplate.send("example-topic", mensageKey, order);
     }
 }
 
